@@ -38,7 +38,7 @@ SDKConfig *config = [[SDKConfig alloc] initWithSdkKey:@"your-api-key" debugMode:
 
 ## Framework Details
 - **Version**: 0.0.2-beta.10
-- **Checksum**: `0c4f20e929d231392cf07ba43bc608a2e5474b7a5f45002dc35696d77f14cf8b`
+- **Checksum**: `89c540f241ae37915290335167bd4d31561edcd0a964263a981b09775566a132`
 - **Minimum iOS**: 13.0
 - **Architecture**: arm64, x86_64 (simulator)
 - **Framework Type**: Dynamic framework with embedded static core
