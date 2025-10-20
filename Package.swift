@@ -7,11 +7,21 @@ let package = Package(
     products: [
         .library(name: "ArmongateMobileAccessSDK", targets: ["ArmongateMobileAccessSDK"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.2-beta.11")
+    ],
     targets: [
         .binaryTarget(
+            name: "ArmongateMobileAccessSDKBinary",
+            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.2-beta.11/ArmongateMobileAccessSDK-0.0.2-beta.11.xcframework.zip",
+            checksum: "3909849004538fe59bcf350fa89d8272a86aa1250f7048c7bfa885e9abf59394"
+        ),
+        .target(
             name: "ArmongateMobileAccessSDK",
-            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.2-beta.10/ArmongateMobileAccessSDK-0.0.2-beta.10.xcframework.zip",
-            checksum: "d62e497b2b4d7376b6ed98f46ce97cd9f0df2175799d9510e0a8270eccdd1167"
+            dependencies: [
+                "ArmongateMobileAccessSDKBinary",
+                .product(name: "VoramCore", package: "mobileaccess-core")
+            ]
         )
     ]
 )
