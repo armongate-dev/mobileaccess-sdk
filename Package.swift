@@ -7,11 +7,14 @@ let package = Package(
     products: [
         .library(name: "ArmongateMobileAccessSDK", targets: ["ArmongateMobileAccessSDK"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.2-beta.3")
+    ],
     targets: [
         .binaryTarget(
             name: "ArmongateMobileAccessSDK",
-            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.1-beta.26/ArmongateMobileAccessSDK-0.0.1-beta.26.xcframework.zip",
-            checksum: "b39deaf5486f9af2ef212881b4659e16c5689589354b9204126c5dd341ca71d4"
+            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.2-beta.3/ArmongateMobileAccessSDK-0.0.2-beta.3.xcframework.zip",
+            checksum: "c6f28246745425e90412987bc4d63a085327d002ec54eb0b56634250922535b0"
         )
     ]
 )
