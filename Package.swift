@@ -10,8 +10,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ArmongateMobileAccessSDK",
-            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.3-beta.6/ArmongateMobileAccessSDK-0.0.3-beta.6.xcframework.zip",
-            checksum: "07e751862d5867a18fe6a9f233bd8153eb03f773389b7cf5fa4af3488efed2a6"
+            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.3-beta.7/ArmongateMobileAccessSDK-0.0.3-beta.7.xcframework.zip",
+            checksum: "2d8400a92e3e893f8e46fe36a1e9f660e39bce1eec5572e663988edd532e2cb2"
         )
     ]
 )
