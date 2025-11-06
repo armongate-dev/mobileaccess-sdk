@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "ArmongateMobileAccessSDK", targets: ["ArmongateMobileAccessSDKWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.5-beta2"),
+        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact:"0.0.5-beta2"),
     ],
     targets: [
         .binaryTarget(
