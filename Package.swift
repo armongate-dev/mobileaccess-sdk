@@ -8,13 +8,13 @@ let package = Package(
         .library(name: "ArmongateMobileAccessSDK", targets: ["ArmongateMobileAccessSDKWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.3-beta.40.2"),
+        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.3-beta.41"),
     ],
     targets: [
         .binaryTarget(
             name: "ArmongateMobileAccessSDK",
-            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.3-beta.40.2/ArmongateMobileAccessSDK-0.0.3-beta.40.2.xcframework.zip",
-            checksum: "7f4c6d69cee2b669912ad95e553fdf5fcae29e315fa0377894bbd567c1e3fd1d"
+            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.3-beta.41/ArmongateMobileAccessSDK-0.0.3-beta.41.xcframework.zip",
+            checksum: "a50074e69ce3c6c9b35f45e9adce693963b01a4f3d86f0c47ff7b3bca63fc33c"
         ),
         .target(
             name: "ArmongateMobileAccessSDKWrapper",
