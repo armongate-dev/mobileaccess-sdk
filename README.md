@@ -161,13 +161,13 @@ public class MainActivity extends AppCompatActivity {
 
 **Xcode:**
 1. **File > Add Package Dependencies...**
-2. URL: `https://github.com/armongate/mobile-access-sdk`
+2. URL: `https://github.com/armongate-dev/mobileaccess-sdk`
 3. Version: `Branch: main`
 
 **Package.swift:**
 ```swift
 dependencies: [
-    .package(url: "https://github.com/armongate/mobile-access-sdk", branch: "main")
+    .package(url: "https://github.com/armongate-dev/mobileaccess-sdk", branch: "main")
 ]
 ```
 
