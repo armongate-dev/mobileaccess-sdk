@@ -55,25 +55,27 @@ dependencies {
 
 ### 2. AndroidManifest.xml
 
-**app/src/main/AndroidManifest.xml:**
+**Not:** SDK içerisindeki tüm gerekli izinler (`BLUETOOTH`, `BLUETOOTH_ADMIN`, `BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`, `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`, `NFC`) otomatik olarak merge edilir. Son kullanıcının AndroidManifest.xml dosyasına bu izinleri eklemesine **gerek yoktur**.
+
+Ancak, eğer özel bir durumunuz varsa veya izinleri manuel olarak kontrol etmek istiyorsanız, aşağıdaki izinleri ekleyebilirsiniz:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     
-    <!-- Bluetooth Yetkileri -->
+    <!-- Bluetooth Yetkileri (SDK tarafından otomatik merge edilir) -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     
-    <!-- Android 12+ (API 31+) -->
+    <!-- Android 12+ (API 31+) - SDK tarafından otomatik merge edilir -->
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" 
         android:usesPermissionFlags="neverForLocation" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     
-    <!-- Location (BLE scanning için gerekli, GPS takibi/kaydı yapılmaz) -->
+    <!-- Location (BLE scanning için gerekli, GPS takibi/kaydı yapılmaz) - SDK tarafından otomatik merge edilir -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     
-    <!-- Opsiyonel: NFC HCE -->
+    <!-- Opsiyonel: NFC HCE - SDK tarafından otomatik merge edilir -->
     <uses-permission android:name="android.permission.NFC" />
     <uses-feature android:name="android.hardware.nfc.hce" android:required="false" />
 </manifest>
@@ -81,7 +83,7 @@ dependencies {
 
 ### 3. Runtime Permissions
 
-Android 6.0+ için runtime permission isteyin:
+**Önemli:** AndroidManifest.xml'deki izinler otomatik merge edilir, ancak Android 6.0+ (API 23+) ve Android 12+ (API 31+) için runtime'da kullanıcıdan izin istenmesi **zorunludur**. Aşağıdaki kod örneğini kullanarak runtime permission isteyin:
 
 ```java
 import android.Manifest;
