@@ -5,21 +5,21 @@ let package = Package(
     name: "ArmongateMobileAccessSDK",
     platforms: [.iOS(.v13)],
     products: [
-        .library(name: "ArmongateMobileAccessSDK", targets: ["ArmongateMobileAccessSDK"]),
+        .library(name: "ArmongateMobileAccessSDK", targets: ["ArmongateMobileAccessSDKWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.3-beta.37"),
+        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.3-beta.38"),
     ],
     targets: [
         .binaryTarget(
-            name: "ArmongateMobileAccessSDKFramework",
-            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.3-beta.37/ArmongateMobileAccessSDK-0.0.3-beta.37.xcframework.zip",
-            checksum: "c57a98880e23aadd679945e8b992e4f59d83584a1024f2f5b8af87b3ffa67830"
+            name: "ArmongateMobileAccessSDK",
+            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.3-beta.38/ArmongateMobileAccessSDK-0.0.3-beta.38.xcframework.zip",
+            checksum: "09056ac912eac405c95870fce24111a49b6b9a81159d02974aace0d389929f4f"
         ),
         .target(
-            name: "ArmongateMobileAccessSDK",
+            name: "ArmongateMobileAccessSDKWrapper",
             dependencies: [
-                "ArmongateMobileAccessSDKFramework",
+                "ArmongateMobileAccessSDK",
                 .product(name: "VoramCore", package: "mobileaccess-core"),
             ]
         )
