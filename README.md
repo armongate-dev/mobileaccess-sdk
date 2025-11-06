@@ -160,14 +160,16 @@ public class MainActivity extends AppCompatActivity {
 **Xcode:**
 1. **File > Add Package Dependencies...**
 2. URL: `https://github.com/armongate/mobile-access-sdk`
-3. Version: `1.0.0-rc.1`
+3. Version: `Branch: main`
 
 **Package.swift:**
 ```swift
 dependencies: [
-    .package(url: "https://github.com/armongate/mobile-access-sdk", exact: "1.0.0-rc.1")
+    .package(url: "https://github.com/armongate/mobile-access-sdk", branch: "main")
 ]
 ```
+
+Not: SPM ile eklenen `ArmongateMobileAccessSDK` paketi, çekirdek paket olan `ArmongateMobileAccessCore` bağımlılığını otomatik olarak indirir ve projeye dahil eder. Versiyon geçişlerinde yalnızca `ArmongateMobileAccessSDK` paketini güncellemeniz yeterlidir; çekirdek paket otomatik olarak eşleşen sürüme güncellenecektir.
 
 ### 2. Info.plist
 
