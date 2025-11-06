@@ -1,4 +1,4 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
@@ -8,13 +8,13 @@ let package = Package(
         .library(name: "ArmongateMobileAccessSDK", targets: ["ArmongateMobileAccessSDKWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.5-beta1"),
+        .package(url: "https://github.com/armongate-dev/mobileaccess-core.git", exact: "0.0.5-beta2"),
     ],
     targets: [
         .binaryTarget(
             name: "ArmongateMobileAccessSDK",
-            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.5-beta1/ArmongateMobileAccessSDK-0.0.5-beta1.xcframework.zip",
-            checksum: "03efab24c8708d1ca34e6eb206f1857920a1186edd6d442f6b66bb31ce9adf2c"
+            url: "https://github.com/armongate-dev/mobileaccess-sdk/releases/download/0.0.5-beta2/ArmongateMobileAccessSDK-0.0.5-beta2.xcframework.zip",
+            checksum: "ea98fbcc270c0c5bc7b1ab59f325fe380999c008988c0eb4c7fcfbd3501e708c"
         ),
         .target(
             name: "ArmongateMobileAccessSDKWrapper",
