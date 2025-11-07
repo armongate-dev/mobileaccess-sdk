@@ -49,7 +49,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.armongate:mobile-access-sdk:1.0.0-rc.1'
+    implementation 'com.armongate:mobile-access-sdk:1.0.0-rc.2'
 }
 ```
 
@@ -163,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 1. **File > Add Package Dependencies...**
 2. URL: `https://github.com/armongate-dev/mobileaccess-sdk`
 3. Version: `Branch: main`
+4. **Add to target:** Paketi eklerken Xcode "Add to target" seçeneği sunar. Burada projenizdeki hedef target'ı seçin (genellikle ana uygulama target'ı).
 
 **Package.swift:**
 ```swift
@@ -171,7 +172,9 @@ dependencies: [
 ]
 ```
 
-Not: SPM ile eklenen `ArmongateMobileAccessSDK` paketi, çekirdek paket olan `ArmongateMobileAccessCore` bağımlılığını otomatik olarak indirir ve projeye dahil eder. Versiyon geçişlerinde yalnızca `ArmongateMobileAccessSDK` paketini güncellemeniz yeterlidir; çekirdek paket otomatik olarak eşleşen sürüme güncellenecektir.
+**Not:** SPM ile eklenen `ArmongateMobileAccessSDK` paketi, çekirdek paket olan `ArmongateMobileAccessCore` bağımlılığını otomatik olarak indirir ve projeye dahil eder. Versiyon geçişlerinde yalnızca `ArmongateMobileAccessSDK` paketini güncellemeniz yeterlidir; çekirdek paket otomatik olarak eşleşen sürüme güncellenecektir.
+
+**Not:** Paket ekleme veya güncelleme sırasında cache sorunları yaşarsanız, [Sorun Giderme](#-sorun-giderme) bölümündeki "SPM Cache Sorunları" başlığına bakın.
 
 ### 2. Info.plist
 
@@ -448,6 +451,33 @@ interface ArmongateMobileAccessDelegate {
 - `Module not found`: Package'ın eklendiğinden emin olun
 - **Product > Clean Build Folder** (Cmd + Shift + K)
 
+#### SPM Cache Sorunları
+
+Paket ekleme veya güncelleme sırasında cache sorunları yaşarsanız, aşağıdaki adımları uygulayın:
+
+**Terminal'de:**
+```bash
+# Xcode cache'lerini temizle
+rm -rf ~/Library/Developer/Xcode/DerivedData
+rm -rf ~/Library/Caches/org.swift.swiftpm
+rm -rf ~/Library/Caches/com.apple.dt.Xcode/SourcePackages
+rm -rf ~/Library/Developer/Xcode/SourcePackages
+rm -rf ~/Library/Developer/Xcode/DerivedData/ModuleCache.noindex
+
+# Proje klasörüne gir
+cd /path/to/your/project
+
+# Proje build cache'lerini temizle
+rm -rf .build
+rm -f Package.resolved
+```
+
+**Xcode'da:**
+1. **File > Packages > Reset Package Caches**
+2. **File > Packages > Resolve Package Versions**
+
+Bu işlemlerden sonra paketi tekrar eklemeyi deneyin.
+
 ### Runtime Hataları
 
 **Permission:**
@@ -473,5 +503,5 @@ interface ArmongateMobileAccessDelegate {
 
 ---
 
-**Versiyon**: 1.0.0-rc.1  
+**Versiyon**: 1.0.0-rc.2  
 **Endpoint**: https://api.armongate.com/
