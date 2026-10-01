@@ -49,7 +49,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.armongate:mobile-access-sdk:1.0.0-rc.2'
+    implementation 'com.armongate:mobile-access-sdk:1.1.0'
 }
 ```
 
@@ -67,8 +67,8 @@ Ancak, eğer özel bir durumunuz varsa veya izinleri manuel olarak kontrol etmek
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     
     <!-- Android 12+ (API 31+) - SDK tarafından otomatik merge edilir -->
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" 
-        android:usesPermissionFlags="neverForLocation" />
+    <!-- neverForLocation EKLEMEYİN: Android bu bayrakla beacon içeren tarama sonuçlarını eler, bazı cihazlar bulunamaz -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     
     <!-- Location (BLE scanning için gerekli, GPS takibi/kaydı yapılmaz) - SDK tarafından otomatik merge edilir -->
@@ -323,11 +323,11 @@ public void onSyncStatusChanged(SDKSyncStatus status, String message) {
 
 #### `ArmongateMobileAccess.shared`
 
-- `initialize(with config: SDKConfig)` - SDK'yı başlatır (otomatik sync başlar)
-- `isInitialized: Bool` - SDK durumu
+- `initialize(with config: SDKConfig)` - SDK'yı başlatır (otomatik sync başlar). `shutdown()` sonrasında tekrar çağrılarak SDK yeniden başlatılabilir
+- `isInitialized: Bool` - `initialize` geçerli bir yapılandırma ile çağrıldıysa ve `shutdown()` çağrılmadıysa `true` döner. Sync'in tamamlandığını göstermez, sync durumu için delegate kullanılmalıdır
 - `startBLE()` - BLE taramayı başlatır
 - `getQRCode() -> String?` - QR kod içeriği oluşturur
-- `getLogs() -> [String]` - SDK kritik loglarını döner
+- `getLogs() -> [String]` - SDK kritik loglarını döner, `initialize` öncesinde de kullanılabilir
 - `shutdown()` - SDK'yı kapatır
 - `getVersion() -> String` - SDK versiyonunu döner
 - `sync()` - Kullanıcı mobil kimliği ve erişim listesi senkronizasyonunu tetikler
@@ -503,5 +503,5 @@ Bu işlemlerden sonra paketi tekrar eklemeyi deneyin.
 
 ---
 
-**Versiyon**: 1.0.0-rc.2  
+**Versiyon**: 1.1.0  
 **Endpoint**: https://api.armongate.com/
